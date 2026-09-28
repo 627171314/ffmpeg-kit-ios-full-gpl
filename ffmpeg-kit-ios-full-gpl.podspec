@@ -1,20 +1,20 @@
 Pod::Spec.new do |s|
     s.name             = 'ffmpeg-kit-ios-full-gpl'
-    s.version          = '4.5.1'
+    s.version          = '6.0.1'
     s.summary          = 'Self-hosted FFmpegKit for iOS with GPL components'
-    s.description      = 'Statically compiled FFmpegKit xcframeworks for iOS including all GPL-enabled components such as libx264, libmp3lame, libfdk-aac, etc.'
+    s.description      = 'iOS device and arm64 simulator XCFrameworks from codewithtamim/ffmpeg-kit-spm v1.0.1, including libx264 and libmp3lame. See upstream licensing and build provenance before distribution.'
     s.homepage         = 'https://github.com/627171314/ffmpeg-kit-ios-full-gpl'
     s.license          = { :type => 'GPL-3.0' }
     s.author           = { '627171314' => '627171314@qq.com' }
   
-    s.platform         = :ios, '12.0'
-    s.static_framework = true
+    s.platform         = :ios, '12.1'
     s.module_name      = 'ffmpegkit'
   
     s.source = {
-      :http => 'https://github.com/627171314/ffmpeg-kit-ios-full-gpl/releases/download/4.5.1/ffmpeg-kit-ios-full-gpl.zip'
+      :git => 'https://github.com/627171314/ffmpeg-kit-ios-full-gpl.git',
+      :tag => '6.0.1'
     }
-  
-    s.vendored_frameworks = 'ffmpeg-kit-ios-full-gpl/*.framework'
+
+    s.vendored_frameworks = 'vendor/*.xcframework'
   end
   

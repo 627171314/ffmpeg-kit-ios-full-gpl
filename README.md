@@ -1,20 +1,21 @@
-# ffmpeg-kit-ios-full-gpl
-This repo is contains `framework` for https://github.com/arthenica/ffmpeg-kit version 4.5.1 for iOS
+# FFmpegKit iOS GPL 6.0.1
 
-This repo is inspired from this discontinued ffmpeg-kit library: https://tanersener.medium.com/saying-goodbye-to-ffmpegkit-33ae939767e1
+此分支封装 [codewithtamim/ffmpeg-kit-spm v1.0.1](https://github.com/codewithtamim/ffmpeg-kit-spm) 的八个预编译 XCFramework，仓库仅保留 iOS arm64 真机和 arm64 模拟器切片。包含 `libx264` 与 `libmp3lame`，不保证包含 `libfdk-aac`。旧版 4.5.1 保留在 `release/4.5.1` 分支，原有 4.5.1 发布资源与 `main` 分支不受影响。
 
-This repo is a replacement of `ffmpeg-kit` iOS
+此二进制来自第三方，已进行校验和及本机模拟器基础功能核验，但不等于已完成源码审计、版权审查或生产环境回归。对外分发前需单独核查 GPL 和每个组件的许可及相应源码义务。
 
-# Podfile
+## CocoaPods 接入
 
-put this below in your `Podfile`, 
-below is replaced from: `pod 'ffmpeg-kit-ios-full-gpl'` or `pod 'ffmpeg-kit-ios-full-gpl', '4.5.1'` because this repo is specifically use version 4.5.1 for iOS
+推荐按固定标签引用，以保证安装可复现：
+
+```ruby
+pod 'ffmpeg-kit-ios-full-gpl', :git => 'https://github.com/627171314/ffmpeg-kit-ios-full-gpl.git', :tag => '6.0.1'
 ```
-pod 'ffmpeg-kit-ios-full-gpl', :podspec => 'https://github.com/627171314/ffmpeg-kit-ios-full-gpl/blob/main/ffmpeg-kit-ios-full-gpl.podspec'
+
+也可引用本分支的原始 podspec 地址：
+
+```ruby
+pod 'ffmpeg-kit-ios-full-gpl', :podspec => 'https://raw.githubusercontent.com/627171314/ffmpeg-kit-ios-full-gpl/release/6.0-xcframework/ffmpeg-kit-ios-full-gpl.podspec'
 ```
 
-then just run this:
-```
-pod install && pod update
-```
-voila, your problem is gone
+安装时使用 `pod install`。本包不支持 x86_64 iOS 模拟器；要求 iOS 12.1 以上。仓库以 Git 托管框架，首次获取可能较慢。
